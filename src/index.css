@@ -1,0 +1,71 @@
+:root {
+  font-family: Gilroy, sans-serif;
+  font-weight: 500;
+  background-color: var(--bg-color);
+  color: var(--text-color);
+  --bg-color: #141414;
+  --bg-second-color:#1F1F1F;
+  --text-color: #F9F9F9;
+  --my-green: #30B94D;
+  --my-blue:#4F92F7;
+  --my-gris: #686868;
+  --my-gris-30: rgba(227, 227, 227, 0.3);
+  --bg-third-color: #262626;
+  --my-red: #E90516;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p {
+  margin: 0;
+
+}
+a {
+  text-decoration: none;
+}
+ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+img {
+  display: block;
+}
+button {
+  outline: none;
+  cursor: pointer;
+  transition: background-color 250ms ease;
+  border: none;
+}
+
+@font-face {
+  font-family: 'Gilroy', sans-serif;
+  src: url('./assets/fonts/Gilroy-Medium.ttf') format('ttf');
+  font-weight: 500;
+  font-stretch: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Gilroy', sans-serif;
+  src: url('./assets/fonts/Gilroy-Bold.ttf') format('ttf');
+  font-weight: 700;
+  font-stretch: normal;
+  font-display: swap;
+}
+
+.container {
+  padding-left: 20px;
+  padding-right: 20px;
+}
+
+@media screen and (min-width: 768px) {
+  .container {
+    padding-left: 32px;
+    padding-right: 32px;
+  }
+}
