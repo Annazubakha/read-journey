@@ -1,17 +1,25 @@
 :root {
-  font-family: Gilroy, sans-serif;
-  font-weight: 500;
-  background-color: var(--bg-color);
-  color: var(--text-color);
   --bg-color: #141414;
-  --bg-second-color:#1F1F1F;
+  --bg-second-color: #1F1F1F;
   --text-color: #F9F9F9;
   --my-green: #30B94D;
-  --my-blue:#4F92F7;
+  --my-blue: #4F92F7;
   --my-gris: #686868;
   --my-gris-30: rgba(227, 227, 227, 0.3);
+  --my-gris-50: rgba(227, 227, 227, 0.5);
   --bg-third-color: #262626;
   --my-red: #E90516;
+  --hover-border: rgba(249, 249, 249, 0.2);
+  --hover-border-input: rgba(249, 249, 249, 0.1)
+}
+
+body {
+  font-family: Gilroy, sans-serif;
+  background-color: var(--bg-color);
+  color: var(--text-color);
+  padding: 0;
+  margin: 0;
+  font-weight: 500;
 }
 
 h1,
@@ -24,22 +32,38 @@ p {
   margin: 0;
 
 }
+
 a {
   text-decoration: none;
+  color: inherit;
+  cursor: pointer;
+  transition: color 300ms ease-out;
 }
+
 ul {
   list-style: none;
   padding: 0;
   margin: 0;
 }
+
 img {
   display: block;
 }
+
 button {
   outline: none;
   cursor: pointer;
-  transition: background-color 250ms ease;
+  transition: background-color 300ms ease-out;
   border: none;
+  font-weight: bold;
+}
+
+input {
+  box-sizing: border-box;
+  border: none;
+  outline: none;
+  margin: 0;
+  padding: 0;
 }
 
 @font-face {
@@ -61,10 +85,12 @@ button {
 .container {
   padding-left: 20px;
   padding-right: 20px;
+  margin-top: 20px;
 }
 
 @media screen and (min-width: 768px) {
   .container {
+    margin-top: 32px;
     padding-left: 32px;
     padding-right: 32px;
   }

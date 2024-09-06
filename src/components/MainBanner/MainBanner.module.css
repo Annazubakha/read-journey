@@ -1,0 +1,22 @@
+.wrapper {
+    background-color: var(--bg-second-color);
+    padding: 20px 40px 0px 40px;
+    border-radius: 30px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+@media screen and (min-width:768px) {
+    .wrapper {
+        display: none;
+    }
+}
+
+@media screen and (min-width:1280px) {
+    .wrapper {
+        display: flex;
+        max-width: 600px;
+        padding: 80px 97px 0px 98px;
+    }
+}

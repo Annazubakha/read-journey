@@ -1,0 +1,27 @@
+.title {
+    font-size: 32px;
+    letter-spacing: -0.02em;
+    margin-bottom: 20px;
+    margin-top: 40px;
+}
+
+.title_span {
+    color: var(--my-gris-50)
+}
+
+@media screen and (min-width:768px) {
+    .title {
+        font-size: 64px;
+        letter-spacing: 0.02em;
+        margin-bottom: 40px;
+        line-height: 0.94;
+        margin-top: 157px;
+    }
+}
+
+@media screen and (min-width:1280px) {
+    .title {
+        margin-top: 107px;
+        width: 472px;
+    }
+}

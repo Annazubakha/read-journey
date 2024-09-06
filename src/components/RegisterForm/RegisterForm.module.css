@@ -1,0 +1,205 @@
+.form {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+@media screen and (min-width:768px) {
+    .form {
+        gap: 14px;
+    }
+}
+
+@media screen and (min-width:1280px) {
+    .form {
+        width: 472px;
+    }
+}
+
+.btn_submit {
+    height: 42px;
+    width: 140px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: var(--bg-second-color);
+    background-color: var(--text-color);
+    border-radius: 30px;
+    font-size: 14px;
+    line-height: 1.29;
+    letter-spacing: 0.02em;
+}
+
+@media screen and (min-width:768px) {
+    .btn_submit {
+        height: 50px;
+        width: 225px;
+        font-size: 20px;
+        line-height: 1;
+    }
+}
+
+.btn_submit:hover,
+.btn_submit:focus {
+    color: var(--text-color);
+    background-color: var(--bg-second-color);
+    border: 1px solid var(--hover-border)
+}
+
+.navlink {
+    font-weight: 500;
+    font-size: 12px;
+    line-height: 1.17;
+    letter-spacing: -0.02em;
+    text-decoration: underline;
+    color: var(--my-gris)
+}
+
+.navlink:hover,
+.navlink:focus {
+    color: var(--text-color);
+}
+
+@media screen and (min-width:768px) {
+    .navlink {
+        font-weight: 500;
+        font-size: 14px;
+        line-height: 1.29;
+    }
+}
+
+.btn_wrapper {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    margin-top: 8px;
+}
+
+@media screen and (min-width:768px) {
+    .btn_wrapper {
+        gap: 20px;
+        margin-top: 68px;
+    }
+}
+
+.input_auth {
+    border-radius: 12px;
+    height: 44px;
+    padding: 0 0 0 49px;
+    width: 100%;
+    background-color: var(--bg-third-color);
+    color: var(--text-color);
+    font-size: 12px;
+}
+
+@media screen and (min-width:768px) {
+    .input_auth {
+        height: 50px;
+        padding: 0 0 0 53px;
+        font-size: 14px;
+    }
+}
+
+.input_auth_password {
+    border-radius: 12px;
+    height: 44px;
+    padding: 0 0 0 78px;
+    width: 100%;
+    background-color: var(--bg-third-color);
+    color: var(--text-color);
+    font-size: 12px;
+}
+
+@media screen and (min-width:768px) {
+    .input_auth_password {
+        height: 50px;
+        padding: 0 0 0 86px;
+        font-size: 14px;
+    }
+}
+
+.input_auth_password:hover,
+.input_auth:hover {
+    border: 1px solid var(--hover-border-input)
+}
+
+.btn_eye {
+    position: absolute;
+    top: 13px;
+    right: 13px;
+    background-color: transparent;
+}
+
+@media screen and (min-width:768px) {
+    .btn_eye {
+        top: 15px;
+        right: 16px;
+    }
+}
+
+.input_wrapper {
+    position: relative;
+}
+
+.placeholder {
+    position: absolute;
+    top: 14px;
+    left: 14px;
+    font-size: 12px;
+    line-height: 1.33;
+    letter-spacing: -0.02em;
+    color: var(--my-gris)
+}
+
+@media screen and (min-width:768px) {
+    .placeholder {
+        top: 16px;
+        font-size: 14px;
+        line-height: 1.29;
+    }
+}
+
+.input_error {
+    position: absolute;
+    bottom: -11px;
+    left: 14px;
+    color: var(--my-red);
+    font-size: 8px;
+}
+
+@media screen and (min-width:768px) {
+    .input_error {
+        font-size: 10px;
+    }
+}
+
+.input_auth_error {
+    border: 1px solid var(--my-red);
+}
+
+.icon_error {
+    position: absolute;
+    top: 13px;
+    right: 13px;
+}
+
+@media screen and (min-width:768px) {
+    .icon_error {
+        top: 16px;
+        right: 16px;
+    }
+}
+
+.icon_error_pass {
+    position: absolute;
+    top: 13px;
+    right: 45px;
+}
+
+
+@media screen and (min-width:768px) {
+    .icon_error_pass {
+        top: 16px;
+        right: 50px;
+    }
+}
