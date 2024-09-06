@@ -1,9 +1,13 @@
 import { useState } from "react";
 import { NavLink, useNavigate } from "react-router-dom";
+import { AppDispatch } from "../../redux/store";
+import { useDispatch, useSelector } from "react-redux";
 import { useForm, SubmitHandler } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";
 import { toast } from "react-toastify";
-import { Icon } from "../index";
+import { selectIsLoading } from "../../redux/auth/slice";
+import { registerThunk } from "../../redux/auth/operations";
+import { Icon, Loader } from "../index";
 import { registerSchema } from "../../schemas";
 
 import s from "./RegisterForm.module.css";
@@ -16,6 +20,8 @@ type Inputs = {
 
 export const RegisterForm = (): JSX.Element => {
   const navigate = useNavigate();
+  const dispatch = useDispatch<AppDispatch>();
+  const isLoading = useSelector(selectIsLoading);
   const [showPass, setShowPass] = useState<boolean>(false);
   const passVisibility = (): void => {
     setShowPass((prevState) => !prevState);
@@ -27,8 +33,7 @@ export const RegisterForm = (): JSX.Element => {
   } = useForm<Inputs>({ resolver: yupResolver(registerSchema) });
   const onSubmit: SubmitHandler<Inputs> = async (data): Promise<void> => {
     try {
-      console.log(data);
-      toast.success("User was registered.");
+      await dispatch(registerThunk(data)).unwrap();
       navigate("/recommended");
     } catch {
       toast.error("User with such mail is already exist. Please, try again.");
@@ -82,7 +87,7 @@ export const RegisterForm = (): JSX.Element => {
       <div className={s.btn_wrapper}>
         <button type="submit" className={s.btn_submit}>
           Registration
-          {/* {isLoading && <Loader size={12} />} */}
+          {isLoading && <Loader size={12} />}
         </button>
         <NavLink to="/login" className={s.navlink}>
           Already have an account?

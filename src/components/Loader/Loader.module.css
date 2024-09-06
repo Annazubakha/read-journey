@@ -1,0 +1,14 @@
+.backdrop {
+    z-index: 1001;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.small_loader {
+    position: absolute;
+    top: 16px;
+    right: 10px;
+}
+
+/* .big_loader {} */

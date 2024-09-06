@@ -7,6 +7,10 @@ export * from "./Icon/Icon"
 export * from "./Header/Header"
 export * from "./AuthLogo/AuthLogo"
 export * from "./RegisterForm/RegisterForm"
+export * from "./BurgerMenu/BurgerMenu"
+export * from "./UserNav/UserNav"
+export * from "./Loader/Loader"
+export * from "./LogoutBtn/LogoutBtn"
 
 
 

@@ -1,0 +1,30 @@
+.backdrop {
+    background-color: var(--bg-backdrop);
+    position: fixed;
+    width: 100vw;
+    top: 0;
+    right: 0;
+    z-index: 1000;
+    height: 100vh;
+}
+
+.menu {
+    background-color: var(--bg-third-color);
+    position: fixed;
+    width: 200px;
+    top: 0;
+    right: 0;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding-top: 280px;
+    padding-bottom: 40px;
+}
+
+.btn_close {
+    position: absolute;
+    top: 34px;
+    right: 40px;
+    background-color: transparent;
+}

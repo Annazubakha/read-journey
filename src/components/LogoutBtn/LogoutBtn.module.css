@@ -1,0 +1,21 @@
+.btn_logout {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 38px;
+    width: 91px;
+    border-radius: 30px;
+    color: var(--text-color);
+    background-color: transparent;
+    border: 1px solid var(--hover-border);
+    line-height: 1.29;
+    letter-spacing: 0.02em;
+}
+
+.btn_logout:hover,
+.btn_logout:focus {
+    color: var(--bg-second-color);
+    border: 1px solid var(--text-color);
+    background-color: var(--text-color);
+    ;
+}

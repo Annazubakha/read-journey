@@ -1,12 +1,16 @@
 import { useState } from "react";
 import { NavLink, useNavigate } from "react-router-dom";
+import { useDispatch, useSelector } from "react-redux";
 import { useForm, SubmitHandler } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";
 import { toast } from "react-toastify";
-import { Icon } from "../index";
+import { AppDispatch } from "../../redux/store";
+import { selectIsLoading } from "../../redux/auth/slice";
+import { Icon, Loader } from "../index";
 import { loginSchema } from "../../schemas";
 
 import s from "./LoginForm.module.css";
+import { loginThunk } from "../../redux/auth/operations";
 
 type Inputs = {
   email: string;
@@ -15,6 +19,8 @@ type Inputs = {
 
 export const LoginForm = (): JSX.Element => {
   const navigate = useNavigate();
+  const dispatch = useDispatch<AppDispatch>();
+  const isLoading = useSelector(selectIsLoading);
   const [showPass, setShowPass] = useState<boolean>(false);
   const passVisibility = (): void => {
     setShowPass((prevState) => !prevState);
@@ -26,7 +32,7 @@ export const LoginForm = (): JSX.Element => {
   } = useForm<Inputs>({ resolver: yupResolver(loginSchema) });
   const onSubmit: SubmitHandler<Inputs> = async (data): Promise<void> => {
     try {
-      console.log(data);
+      await dispatch(loginThunk(data)).unwrap();
       toast.success("Log in success.");
       navigate("/recommended");
     } catch {
@@ -72,7 +78,7 @@ export const LoginForm = (): JSX.Element => {
       <div className={s.btn_wrapper}>
         <button type="submit" className={s.btn_submit}>
           Log in
-          {/* {isLoading && <Loader size={12} />} */}
+          {isLoading && <Loader size={12} />}
         </button>
         <NavLink to="/register" className={s.navlink}>
           Don&#39;t have an account?
