@@ -1,0 +1,36 @@
+.list {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    font-size: 14px;
+    line-height: 1.29;
+    letter-spacing: -0.02em;
+    color: var(--my-gris)
+}
+
+@media screen and (min-width:768px) {
+    .list {
+        flex-direction: row;
+        gap: 32px;
+        font-size: 16px;
+        line-height: 1.12;
+    }
+}
+
+.list .item a.active {
+    color: var(--text-color);
+    position: relative;
+
+}
+
+.list .item a.active::after {
+    height: 3px;
+    background-color: var(--my-blue);
+    position: absolute;
+    bottom: -4px;
+    left: 0;
+    content: "";
+    width: 100%;
+    border-radius: 8px;
+
+}

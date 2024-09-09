@@ -7,7 +7,7 @@ const NotFoundPage = (): JSX.Element => {
       <div className={s.wrapper}>
         <h1>Ooops...</h1>
         <p>This page doesn&#39;t exist.</p>
-        <NavLink to="/recomended" className={s.return}>
+        <NavLink to="/recommended" className={s.return}>
           Return
         </NavLink>
       </div>

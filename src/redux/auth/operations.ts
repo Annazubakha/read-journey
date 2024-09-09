@@ -16,10 +16,6 @@ name: string;
 refreshToken: string;
 }
 
-interface LogoutResponse {
-  message: string; 
-}
-
 export const registerThunk = createAsyncThunk<
   AuthResponse,
   Credentials,
@@ -72,9 +68,9 @@ export const loginThunk = createAsyncThunk<
 
 export const logoutThunk = createAsyncThunk(
   "logout",
-    async (token, thunkAPI) => {
+  async (token, thunkAPI) => {
     try {
-      await instance.post<LogoutResponse>("/users/signout", token);
+      await instance.post("/users/signout", token);
       clearToken();
     } catch (error) {
       return thunkAPI.rejectWithValue((error as Error).message);

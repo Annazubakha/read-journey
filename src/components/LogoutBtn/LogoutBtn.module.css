@@ -19,3 +19,15 @@
     background-color: var(--text-color);
     ;
 }
+
+
+@media screen and (mai-width:768px) {
+    .btn_logout {
+        height: 42px;
+        width: 114px;
+        border-radius: 30px;
+        font-size: 16px;
+        line-height: 1.12;
+
+    }
+}

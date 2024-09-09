@@ -7,9 +7,52 @@
     display: flex;
     align-items: center;
     justify-content: space-between;
+    margin: 20px 20px 10px 20px;
+
+}
+
+@media screen and (min-width:768px) {
+    .header {
+        height: 74px;
+        margin: 32px 32px 16px 32px;
+    }
 }
 
 .btn_burger {
     background-color: transparent;
     padding: 0;
+}
+
+.wrapper {
+    display: flex;
+    gap: 10px;
+    align-items: center;
+    justify-content: center;
+}
+
+.wrapper_name {
+    height: 35px;
+    width: 35px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: 1px solid var(--hover-border);
+    font-weight: bold;
+    font-size: 16px;
+    letter-spacing: -0.02em;
+}
+
+@media screen and (mai-width:768px) {
+    .wrapper_name {
+        height: 40px;
+        width: 40px;
+    }
+}
+
+.full_name {
+    font-weight: bold;
+    font-size: 16px;
+    line-height: 1.12;
+    letter-spacing: -0.02em;
 }

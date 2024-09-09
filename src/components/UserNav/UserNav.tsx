@@ -5,11 +5,21 @@ import s from "./UserNav.module.css";
 export const UserNav = (): JSX.Element => {
   return (
     <ul className={s.list}>
-      <li>
-        <NavLink to="/recommended">Home</NavLink>
+      <li className={s.item}>
+        <NavLink
+          to="/recommended"
+          className={({ isActive }) => (isActive ? s.active : "")}
+        >
+          Home
+        </NavLink>
       </li>
-      <li>
-        <NavLink to="/library">My library</NavLink>
+      <li className={s.item}>
+        <NavLink
+          to="/library"
+          className={({ isActive }) => (isActive ? s.active : "")}
+        >
+          My library
+        </NavLink>
       </li>
     </ul>
   );

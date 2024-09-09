@@ -19,3 +19,16 @@
         align-items: center;
     }
 }
+
+.logo_text_loggedin {
+    display: none
+}
+
+@media screen and (min-width:1280px) {
+    .logo_text_loggedin {
+        display: block;
+        font-weight: bold;
+        font-size: 18px;
+        letter-spacing: 0.02em;
+    }
+}
