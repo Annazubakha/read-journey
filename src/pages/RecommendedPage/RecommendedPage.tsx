@@ -1,5 +1,11 @@
+import { Dashboard } from "../../components";
+
 const RecommendedPage = (): JSX.Element => {
-  return <div>RecommendedPage</div>;
+  return (
+    <>
+      <Dashboard />
+    </>
+  );
 };
 
 export default RecommendedPage;

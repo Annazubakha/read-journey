@@ -1,0 +1,24 @@
+.wrapper {
+    background-color: var(--bg-second-color);
+    padding: 20px;
+    border-radius: 30px;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+@media screen and (min-width:768px) {
+    .wrapper {
+        flex-direction: row;
+        gap: 32px;
+        padding: 32px;
+    }
+}
+
+@media screen and (min-width:1280px) {
+    .wrapper {
+        flex-direction: column;
+        padding: 40px 20px;
+        gap: 20px;
+    }
+}
