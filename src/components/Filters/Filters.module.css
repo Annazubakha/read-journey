@@ -76,7 +76,8 @@
     font-size: 12px;
     line-height: 1.33;
     letter-spacing: -0.02em;
-    font-weight: 500
+    font-weight: 500;
+    cursor: pointer;
 }
 
 
@@ -100,7 +101,8 @@
     font-size: 12px;
     line-height: 1.33;
     letter-spacing: -0.02em;
-    font-weight: 500
+    font-weight: 500;
+    cursor: pointer;
 }
 
 
@@ -110,6 +112,7 @@
         padding: 0 0 0 95px;
         font-size: 14px;
         line-height: 1.29;
+
     }
 
 }
