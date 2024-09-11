@@ -1,0 +1,22 @@
+.wrapper {
+    background-color: var(--bg-third-color);
+    border-radius: 12px;
+    padding: 15px 20px;
+    display: flex;
+    gap: 14px;
+}
+
+.text {
+    line-height: 1.29;
+    letter-spacing: -0.02em;
+    color: var(--my-gris)
+}
+
+.accent {
+    color: var(--text-color)
+}
+
+.emoji {
+    width: 40px;
+    height: 40px;
+}

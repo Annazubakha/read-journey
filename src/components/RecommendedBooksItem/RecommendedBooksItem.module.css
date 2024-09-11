@@ -1,0 +1,25 @@
+.book_item {
+    width: 137px;
+}
+
+.book_img {
+    width: 137px;
+    height: 208px;
+    border-radius: 8px;
+    margin-bottom: 8px;
+    cursor: pointer;
+}
+
+.book_title {
+    font-size: 14px;
+    line-height: 1.29;
+    letter-spacing: -0.02em;
+    margin-bottom: 2px;
+}
+
+.book_author {
+    font-size: 10px;
+    line-height: 1.2;
+    letter-spacing: -0.02em;
+    color: var(--my-gris)
+}

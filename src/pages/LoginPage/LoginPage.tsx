@@ -4,7 +4,7 @@ import s from "./LoginPage.module.css";
 
 const LoginPage = (): JSX.Element => {
   return (
-    <div className={`container ${s.wrapper_main}`}>
+    <div className={`container_auth ${s.wrapper_main}`}>
       <div className={s.wrapper}>
         <AuthLogo />
         <Title />

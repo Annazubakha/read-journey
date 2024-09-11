@@ -11,6 +11,12 @@
     }
 }
 
+@media screen and (min-width:1280px) {
+    .wrapper {
+        width: 100%;
+    }
+}
+
 .title {
     font-size: 18px;
     letter-spacing: -0.02em;

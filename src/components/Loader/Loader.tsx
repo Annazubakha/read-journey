@@ -10,7 +10,7 @@ export const Loader: React.FC<LoaderProps> = ({ size }): JSX.Element => {
   const location = useLocation();
   return (
     <div
-      className={`${s.backdrop} ${
+      className={` ${
         location.pathname === "/register" || location.pathname === "/login"
           ? s.small_loader
           : s.big_loader

@@ -91,6 +91,7 @@
     background-color: var(--bg-third-color);
     color: var(--text-color);
     font-size: 12px;
+    font-weight: 500
 }
 
 @media screen and (min-width:768px) {
@@ -109,6 +110,7 @@
     background-color: var(--bg-third-color);
     color: var(--text-color);
     font-size: 12px;
+    font-weight: 500
 }
 
 @media screen and (min-width:768px) {

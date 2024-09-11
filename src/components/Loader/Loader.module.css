@@ -1,14 +1,18 @@
-.backdrop {
-    z-index: 1001;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
-
 .small_loader {
     position: absolute;
     top: 16px;
     right: 10px;
 }
 
-/* .big_loader {} */
+.big_loader {
+    position: absolute;
+    top: 0;
+    right: 0;
+    background-color: var(--bg-backdrop);
+    height: 100vh;
+    width: 100vw;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1001;
+}
