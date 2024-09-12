@@ -1,6 +1,9 @@
 import { SubmitHandler, useForm } from "react-hook-form";
 import { toast } from "react-toastify";
+import { useDispatch } from "react-redux";
+import { AppDispatch } from "../../redux/store";
 import s from "./Filters.module.css";
+import { setFilters } from "../../redux/books/slice";
 
 interface FormValues {
   title: string;
@@ -8,14 +11,11 @@ interface FormValues {
 }
 
 export const Filters = (): JSX.Element => {
-  //   const dispatch = useDispatch<AppDispatch>();
-  //   const isLoading = useSelector(selectIsLoading);
-
+  const dispatch = useDispatch<AppDispatch>();
   const { register, handleSubmit } = useForm<FormValues>();
   const onSubmit: SubmitHandler<FormValues> = ({ author, title }) => {
     try {
-      console.log(author);
-      console.log(title);
+      dispatch(setFilters({ author, title }));
     } catch {
       toast.error("Something went wrong. Please, try again.");
     }
@@ -38,7 +38,6 @@ export const Filters = (): JSX.Element => {
         </div>
         <button type="submit" className={s.btn_submit}>
           To apply
-          {/* {isLoading && <Loader size={12} />} */}
         </button>
       </form>
     </>

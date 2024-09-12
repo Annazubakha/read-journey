@@ -9,6 +9,10 @@ interface BooksState {
   perPage: number;
   isLoading: boolean;
   error: string | null | undefined;
+  filters: {
+    title: string;
+    author: string;
+  };
 }
 
 const initialState: BooksState = {
@@ -18,12 +22,23 @@ const initialState: BooksState = {
   perPage: 2,
   isLoading: false,
   error: null,
+  filters: {
+    title: "",
+    author: "",
+  },
 };
 
 const slice = createSlice({
   name: "books",
   initialState,
-  reducers: {},
+  reducers: {
+    setPage: (state, action) => {
+      state.page = action.payload;
+    },
+    setFilters: (state, action) => {
+      state.filters = action.payload;
+    },
+  },
   extraReducers: (builder) => {
     builder
       .addCase(
@@ -48,9 +63,11 @@ const slice = createSlice({
 });
 
 export const booksReducer = slice.reducer;
+export const { setPage, setFilters } = slice.actions;
 
 export const selectIsLoading = (state: RootState) => state.books.isLoading;
 export const selectError = (state: RootState) => state.books.error;
 export const selectBooks = (state: RootState) => state.books.books;
 export const selectPage = (state: RootState) => state.books.page;
 export const selectTotalPages = (state: RootState) => state.books.totalPages;
+export const selectFilters = (state: RootState) => state.books.filters;
