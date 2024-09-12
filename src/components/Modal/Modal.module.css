@@ -1,0 +1,49 @@
+.backdrop {
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1001;
+    background-color: var(--bg-backdrop);
+    position: fixed;
+    top: 0;
+    right: 0;
+}
+
+.modal {
+    background-color: var(--bg-second-color);
+    border-radius: 12px;
+    padding: 40px;
+    position: relative;
+    border: 1px solid var(--modal-border);
+    box-sizing: border-box;
+}
+
+@media screen and (min-width:375px) {
+    .modal {
+        width: 335px;
+    }
+}
+
+
+@media screen and (min-width:768px) {
+    .modal {
+        width: 500px;
+        padding: 50px;
+    }
+}
+
+.btn_close {
+    position: absolute;
+    top: 16px;
+    right: 16px;
+    background-color: transparent;
+}
+
+.content_wrapper {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}

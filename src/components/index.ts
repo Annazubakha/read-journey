@@ -19,3 +19,5 @@ export * from "./RecommendedBooksItem/RecommendedBooksItem";
 export * from "./Filters/Filters";
 export * from "./Pagination/Pagination";
 export * from "./QuoteBlock/QuoteBlock";
+export * from "./Modal/Modal";
+export * from "./ModalBookInfo/ModalBookInfo";

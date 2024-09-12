@@ -1,0 +1,85 @@
+.book_img {
+    width: 140px;
+    height: 213px;
+    border-radius: 8px;
+    margin-bottom: 16px;
+}
+
+@media screen and (min-width:768px) {
+    .book_img {
+        width: 153px;
+        height: 233px;
+    }
+}
+
+.book_title {
+    font-size: 18px;
+    letter-spacing: -0.02em;
+    margin-bottom: 2px;
+}
+
+@media screen and (min-width:768px) {
+    .book_title {
+        font-size: 20px;
+
+    }
+}
+
+.book_author {
+    font-size: 12px;
+    line-height: 1.17;
+    letter-spacing: -0.02em;
+    color: var(--my-gris);
+    margin-bottom: 4px;
+}
+
+@media screen and (min-width:768px) {
+    .book_author {
+        font-size: 14px;
+        line-height: 1.29;
+    }
+}
+
+.book_pages {
+    font-size: 10px;
+    line-height: 1.2;
+    letter-spacing: -0.02em;
+    margin-bottom: 20px;
+}
+
+@media screen and (min-width:768px) {
+    .book_pages {
+        margin-bottom: 32px;
+    }
+}
+
+.btn_add {
+    height: 42px;
+    width: 141px;
+    border-radius: 30px;
+    color: var(--text-color);
+    background-color: transparent;
+    border: 1px solid var(--hover-border);
+    font-size: 14px;
+    line-height: 1.29;
+    letter-spacing: 0.02em;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+@media screen and (min-width:768px) {
+    .btn_add {
+        height: 46px;
+        width: 162px;
+        font-size: 16px;
+        line-height: 1.12
+    }
+}
+
+.btn_add:hover,
+.btn_add:focus {
+    color: var(--bg-second-color);
+    background-color: var(--text-color);
+    border: 1px solid var(--text-color);
+}
