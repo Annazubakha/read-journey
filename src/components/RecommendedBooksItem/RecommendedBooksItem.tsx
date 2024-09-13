@@ -1,7 +1,6 @@
 import { useModal } from "../../helpers";
 import { Book } from "../../redux/books/operations";
-import { Modal } from "../Modal/Modal";
-import { ModalBookInfo } from "../ModalBookInfo/ModalBookInfo";
+import { Modal, ModalAddBook, ModalBookInfo } from "../index";
 import s from "./RecommendedBooksItem.module.css";
 
 interface RecommendedBooksItemProps {
@@ -12,6 +11,12 @@ export const RecommendedBooksItem: React.FC<RecommendedBooksItemProps> = ({
   book,
 }): JSX.Element => {
   const [isModal, toggleIsModal] = useModal();
+  const [isModalAddBook, toggleIsModalAddBook] = useModal();
+
+  const handleAddBookSuccess = () => {
+    toggleIsModal();
+    toggleIsModalAddBook();
+  };
 
   return (
     <>
@@ -26,8 +31,17 @@ export const RecommendedBooksItem: React.FC<RecommendedBooksItemProps> = ({
         <p className={s.book_author}>{book.author}</p>
       </li>
       {isModal && (
-        <Modal toggleModal={toggleIsModal}>
-          <ModalBookInfo toggleModal={toggleIsModal} book={book} />
+        <Modal toggleModal={toggleIsModal} modalType="addBook">
+          <ModalBookInfo
+            toggleModal={toggleIsModal}
+            book={book}
+            onAddBookSuccess={handleAddBookSuccess}
+          />
+        </Modal>
+      )}
+      {isModalAddBook && (
+        <Modal toggleModal={toggleIsModalAddBook}>
+          <ModalAddBook />
         </Modal>
       )}
     </>

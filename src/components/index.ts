@@ -21,3 +21,5 @@ export * from "./Pagination/Pagination";
 export * from "./QuoteBlock/QuoteBlock";
 export * from "./Modal/Modal";
 export * from "./ModalBookInfo/ModalBookInfo";
+export * from "./ModalAddBook/ModalAddBook";
+export * from "./MyLibraryBooks/MyLibraryBooks";

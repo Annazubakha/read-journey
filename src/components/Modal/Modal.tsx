@@ -7,6 +7,7 @@ import s from "./Modal.module.css";
 interface ModalProps {
   children: ReactNode;
   toggleModal: () => void;
+  modalType?: string;
 }
 
 const modalRoot =
@@ -15,7 +16,11 @@ const modalRoot =
 modalRoot.id = "modalRoot";
 document.body.appendChild(modalRoot);
 
-export const Modal: React.FC<ModalProps> = ({ children, toggleModal }) => {
+export const Modal: React.FC<ModalProps> = ({
+  children,
+  toggleModal,
+  modalType,
+}) => {
   useEffect(() => {
     const handleEscape = (e: KeyboardEvent) => {
       if (e.code === "Escape") {
@@ -40,7 +45,12 @@ export const Modal: React.FC<ModalProps> = ({ children, toggleModal }) => {
 
   return ReactDOM.createPortal(
     <div onClick={handleClickOnBackdrop} className={s.backdrop}>
-      <div className={s.modal}>
+      <div
+        className={`${s.modal} ${
+          modalType === "addBook" ? s.modal_big : s.modal_small
+        }`}
+      >
+        {/* <div className={s.modal}>  */}
         <button className={s.btn_close} type="button" onClick={toggleModal}>
           <Icon id="close" size={24} />
         </button>

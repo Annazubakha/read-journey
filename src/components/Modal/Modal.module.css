@@ -14,22 +14,44 @@
 .modal {
     background-color: var(--bg-second-color);
     border-radius: 12px;
-    padding: 40px;
     position: relative;
     border: 1px solid var(--modal-border);
     box-sizing: border-box;
 }
 
+
+.modal_big {
+    padding: 40px;
+}
+
 @media screen and (min-width:375px) {
-    .modal {
+    .modal_big {
         width: 335px;
     }
 }
 
 
 @media screen and (min-width:768px) {
-    .modal {
+    .modal_big {
         width: 500px;
+        padding: 50px;
+    }
+}
+
+.modal_small {
+    padding: 60px 47px 60px 46px;
+}
+
+@media screen and (min-width:375px) {
+    .modal_small {
+        width: 335px;
+    }
+}
+
+
+@media screen and (min-width:768px) {
+    .modal_small {
+        width: 342px;
         padding: 50px;
     }
 }
