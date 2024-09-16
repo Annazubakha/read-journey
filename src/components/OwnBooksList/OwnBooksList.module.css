@@ -1,0 +1,12 @@
+.list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 21px;
+
+}
+
+@media screen and (max-width:374.99px) {
+    .list {
+        justify-content: center;
+    }
+}

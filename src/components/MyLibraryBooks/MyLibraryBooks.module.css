@@ -1,0 +1,35 @@
+.wrapper {
+    border-radius: 30px;
+    padding: 40px 20px;
+    background-color: var(--bg-second-color);
+    position: relative;
+}
+
+@media screen and (min-width: 768px) {
+    .wrapper {
+        padding: 40px
+    }
+}
+
+@media screen and (min-width:1280px) {
+    .wrapper {
+        width: 847px;
+    }
+}
+
+.title {
+    font-size: 20px;
+    letter-spacing: -0.02em;
+    margin-bottom: 34px;
+
+}
+
+@media screen and (min-width: 768px) {
+    .title {
+        font-size: 28px;
+        line-height: 1.14;
+        letter-spacing: 0.02em;
+        margin-bottom: 32px;
+
+    }
+}
