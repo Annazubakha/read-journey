@@ -1,11 +1,13 @@
 import { createSlice, isAnyOf } from "@reduxjs/toolkit";
 import { RootState } from "../store";
 import {
+  addNewBookThunk,
   addUserBookThunk,
   deleteUserBookThunk,
   fetchUserBooksThunk,
   userBookResponse,
 } from "./operations";
+import { logoutThunk } from "../auth/operations";
 
 interface userBookState {
   userBooks: userBookResponse[];
@@ -34,11 +36,15 @@ const slice = createSlice({
       .addCase(fetchUserBooksThunk.fulfilled, (state, { payload }) => {
         state.userBooks = payload;
       })
+      .addCase(logoutThunk.fulfilled, () => {
+        return initialState;
+      })
       .addMatcher(
         isAnyOf(
           addUserBookThunk.fulfilled,
           deleteUserBookThunk.fulfilled,
-          fetchUserBooksThunk.fulfilled
+          fetchUserBooksThunk.fulfilled,
+          addNewBookThunk.fulfilled
         ),
         (state) => {
           state.isLoading = false;
@@ -48,7 +54,8 @@ const slice = createSlice({
         isAnyOf(
           addUserBookThunk.pending,
           deleteUserBookThunk.pending,
-          fetchUserBooksThunk.pending
+          fetchUserBooksThunk.pending,
+          addNewBookThunk.pending
         ),
         (state) => {
           state.isLoading = true;
@@ -59,7 +66,8 @@ const slice = createSlice({
         isAnyOf(
           addUserBookThunk.rejected,
           deleteUserBookThunk.rejected,
-          fetchUserBooksThunk.rejected
+          fetchUserBooksThunk.rejected,
+          addNewBookThunk.rejected
         ),
         (state, { payload }) => {
           state.error = payload;

@@ -8,7 +8,7 @@ export interface Book {
   author: string;
   imageUrl: string;
   totalPages: number;
-  recommend: boolean;
+  recommend?: boolean;
 }
 
 interface BooksResponse {

@@ -1,6 +1,7 @@
 import { createSlice } from "@reduxjs/toolkit";
 import { RootState } from "../store";
 import { Book, booksThunk } from "./operations";
+import { logoutThunk } from "../auth/operations";
 
 interface BooksState {
   books: Book[];
@@ -58,6 +59,9 @@ const slice = createSlice({
       .addCase(booksThunk.rejected, (state, { payload }) => {
         state.error = payload;
         state.isLoading = false;
+      })
+      .addCase(logoutThunk.fulfilled, () => {
+        return initialState;
       });
   },
 });

@@ -1,6 +1,7 @@
 import { createSlice } from "@reduxjs/toolkit";
 import { RootState } from "../store";
 import { userThunk } from "./operations";
+import { logoutThunk } from "../auth/operations";
 
 interface UserState {
   isLoading: boolean;
@@ -40,6 +41,9 @@ const slice = createSlice({
       .addCase(userThunk.rejected, (state, { payload }) => {
         state.error = payload;
         state.isLoading = false;
+      })
+      .addCase(logoutThunk.fulfilled, () => {
+        return initialState;
       });
   },
 });

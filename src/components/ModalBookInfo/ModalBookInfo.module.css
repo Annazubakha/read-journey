@@ -83,3 +83,14 @@
     background-color: var(--text-color);
     border: 1px solid var(--text-color);
 }
+
+.book_noimage {
+    width: 137px;
+    height: 208px;
+    border-radius: 8px;
+    margin-bottom: 8px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: var(--bg-third-color);
+}

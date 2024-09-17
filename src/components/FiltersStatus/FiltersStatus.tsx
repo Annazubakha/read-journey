@@ -2,10 +2,10 @@ import { useState } from "react";
 import { useDispatch } from "react-redux";
 import { toast } from "react-toastify";
 import { setFilters } from "../../redux/userBooks/slice";
+import { fetchUserBooksThunk } from "../../redux/userBooks/operations";
 import { AppDispatch } from "../../redux/store";
 import { Icon } from "../index";
 import s from "./FiltersStatus.module.css";
-import { fetchUserBooksThunk } from "../../redux/userBooks/operations";
 
 export const FiltersStatus = (): JSX.Element => {
   const dispatch = useDispatch<AppDispatch>();

@@ -26,6 +26,12 @@ interface ownBooksParams {
   status?: string;
 }
 
+interface CredentialsBook {
+  title: string;
+  author: string;
+  totalPages: number;
+}
+
 export const addUserBookThunk = createAsyncThunk<
   void,
   string,
@@ -85,6 +91,21 @@ export const deleteUserBookThunk = createAsyncThunk<
   try {
     setToken(token);
     await instance.delete<void[]>(`books/remove/${id}`);
+  } catch (error) {
+    return thunkAPI.rejectWithValue((error as Error).message);
+  }
+});
+
+export const addNewBookThunk = createAsyncThunk<
+  void,
+  CredentialsBook,
+  {
+    rejectValue: string;
+  }
+>("new book", async (credentials, thunkAPI) => {
+  try {
+    const { data } = await instance.post<void>("/books/add", credentials);
+    return data;
   } catch (error) {
     return thunkAPI.rejectWithValue((error as Error).message);
   }

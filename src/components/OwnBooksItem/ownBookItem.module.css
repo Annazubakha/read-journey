@@ -10,6 +10,17 @@
     margin-bottom: 8px;
 }
 
+.book_noimage {
+    width: 137px;
+    height: 208px;
+    border-radius: 8px;
+    margin-bottom: 8px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: var(--bg-third-color);
+}
+
 .book_title {
     font-size: 14px;
     line-height: 1.29;

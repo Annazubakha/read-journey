@@ -32,11 +32,7 @@ export const RecommendedBooksItem: React.FC<RecommendedBooksItemProps> = ({
       </li>
       {isModal && (
         <Modal toggleModal={toggleIsModal} modalType="addBook">
-          <ModalBookInfo
-            toggleModal={toggleIsModal}
-            book={book}
-            onAddBookSuccess={handleAddBookSuccess}
-          />
+          <ModalBookInfo book={book} onAddBookSuccess={handleAddBookSuccess} />
         </Modal>
       )}
       {isModalAddBook && (
