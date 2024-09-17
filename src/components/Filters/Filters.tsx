@@ -13,9 +13,9 @@ interface FormValues {
 export const Filters = (): JSX.Element => {
   const dispatch = useDispatch<AppDispatch>();
   const { register, handleSubmit } = useForm<FormValues>();
-  const onSubmit: SubmitHandler<FormValues> = ({ author, title }) => {
+  const onSubmit: SubmitHandler<FormValues> = async ({ author, title }) => {
     try {
-      dispatch(setFilters({ author, title }));
+      await dispatch(setFilters({ author, title }));
     } catch {
       toast.error("Something went wrong. Please, try again.");
     }

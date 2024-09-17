@@ -28,7 +28,7 @@ export const FiltersBooks = (): JSX.Element => {
   return (
     <>
       <form onSubmit={handleSubmit(onSubmit)} className={s.form}>
-        <p className={s.form_title}>Create your library::</p>
+        <p className={s.form_title}>Create your library:</p>
         <div className={s.input_wrapper}>
           <input type="text" {...register("title")} className={s.input_title} />
           <p className={s.placeholder}>Book title:</p>
