@@ -30,3 +30,6 @@ export * from "./FiltersAddBooks/FiltersAddBooks";
 export * from "./LibraryDashboard/LibraryDashboard";
 export * from "./RecommendedBooksLibrary/RecommendedBooksLibrary";
 export * from "./FiltersStatus/FiltersStatus";
+export * from "./DasboardReading/DasboardReading";
+export * from "./MyBook/MyBook";
+export * from "./AddReading/AddReading";

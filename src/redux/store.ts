@@ -15,6 +15,7 @@ import { authReducer } from "./auth/slice";
 import { userReducer } from "./user/slice";
 import { booksReducer } from "./books/slice";
 import { userBooksReducer } from "./userBooks/slice";
+import { currentBookReducer } from "./currentBook/slice";
 
 const persistConfig = {
   key: "root",
@@ -31,6 +32,7 @@ export const store = configureStore({
     user: userReducer,
     books: booksReducer,
     userBooks: userBooksReducer,
+    currentBook: currentBookReducer,
   },
   middleware: (getDefaultMiddleware) =>
     getDefaultMiddleware({

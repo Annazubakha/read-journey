@@ -1,5 +1,5 @@
 import { useDispatch } from "react-redux";
-import { useLocation } from "react-router-dom";
+import { useLocation, useNavigate } from "react-router-dom";
 import { toast } from "react-toastify";
 import { Book } from "../../redux/books/operations";
 import { AppDispatch } from "../../redux/store";
@@ -21,6 +21,7 @@ export const ModalBookInfo: React.FC<ModalBookInfoProps> = ({
 }): JSX.Element => {
   const dispatch = useDispatch<AppDispatch>();
   const location = useLocation();
+  const navigate = useNavigate();
   const handleAddBook = async (id: string) => {
     try {
       await dispatch(addUserBookThunk(id)).unwrap();
@@ -31,6 +32,12 @@ export const ModalBookInfo: React.FC<ModalBookInfoProps> = ({
       toast.error("Something went wrong. Please, try again");
     }
   };
+
+  const handleReadingBook = async (id: string) => {
+    localStorage.setItem("book", id);
+    navigate("/reading");
+  };
+
   return (
     <>
       {book.imageUrl ? (
@@ -48,7 +55,12 @@ export const ModalBookInfo: React.FC<ModalBookInfoProps> = ({
           Add to library{" "}
         </button>
       ) : (
-        <button className={s.btn_add}>Start reading</button>
+        <button
+          className={s.btn_add}
+          onClick={() => handleReadingBook(book._id)}
+        >
+          Start reading
+        </button>
       )}
     </>
   );

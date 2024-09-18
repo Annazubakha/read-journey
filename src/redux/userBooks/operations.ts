@@ -2,7 +2,7 @@ import { createAsyncThunk } from "@reduxjs/toolkit";
 import { instance, setToken } from "../../api/api";
 import { RootState } from "../store";
 
-interface Progress {
+export interface Progress {
   startPage: number;
   startReading: string;
   finishPage: number;
