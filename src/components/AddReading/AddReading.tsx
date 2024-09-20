@@ -1,7 +1,16 @@
+import { useSelector } from "react-redux";
 import { SubmitHandler, useForm } from "react-hook-form";
 import { toast } from "react-toastify";
-// import { useDispatch } from "react-redux";
-// import { AppDispatch } from "../../redux/store";
+import { useDispatch } from "react-redux";
+import { AppDispatch } from "../../redux/store";
+import { selectBook } from "../../redux/currentBook/slice";
+import {
+  startReadingThunk,
+  stopReadingThunk,
+} from "../../redux/currentBook/operations";
+import { Modal, ModalFinishBook } from "../index";
+import { Props } from "../DasboardReading/DasboardReading";
+import { useModal } from "../../helpers";
 
 import s from "./AddReading.module.css";
 
@@ -9,8 +18,13 @@ interface FormValues {
   page: number;
 }
 
-export const AddReading = (): JSX.Element => {
-  //   const dispatch = useDispatch<AppDispatch>();
+export const AddReading: React.FC<Props> = ({
+  setIsReading,
+  isReading,
+}): JSX.Element => {
+  const [isModal, toggleIsModal] = useModal();
+  const book = useSelector(selectBook);
+  const dispatch = useDispatch<AppDispatch>();
 
   const {
     register,
@@ -19,8 +33,16 @@ export const AddReading = (): JSX.Element => {
   } = useForm<FormValues>();
   const onSubmit: SubmitHandler<FormValues> = async ({ page }) => {
     try {
-      //   await dispatch();
-      console.log(page);
+      if (isReading === true) {
+        await dispatch(stopReadingThunk({ page, id: book._id })).unwrap();
+        setIsReading(false);
+        if (page === book.totalPages) {
+          toggleIsModal();
+        }
+      } else {
+        await dispatch(startReadingThunk({ page, id: book._id })).unwrap();
+        setIsReading(true);
+      }
     } catch {
       toast.error("Something went wrong. Please, try again.");
     }
@@ -50,9 +72,14 @@ export const AddReading = (): JSX.Element => {
           <p className={s.placeholder}>Page number:</p>
         </div>
         <button type="submit" className={s.btn_submit}>
-          To start
+          {isReading ? "To stop" : "To start"}
         </button>
       </form>
+      {isModal && (
+        <Modal toggleModal={toggleIsModal}>
+          <ModalFinishBook />
+        </Modal>
+      )}
     </>
   );
 };

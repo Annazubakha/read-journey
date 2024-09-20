@@ -69,6 +69,7 @@
     line-height: 1.29;
     letter-spacing: -0.02em;
     margin-bottom: 4px;
+    text-align: center;
 }
 
 @media screen and (min-width:768px) {

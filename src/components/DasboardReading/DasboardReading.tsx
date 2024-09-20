@@ -3,10 +3,18 @@ import Img1 from "../../assets/images/emoji/star-emoji@1x.png";
 import Img2 from "../../assets/images/emoji/star-emoji@2x.png";
 import s from "./DasboardReading.module.css";
 
-export const DasboardReading = (): JSX.Element => {
+export interface Props {
+  setIsReading: (value: boolean) => void;
+  isReading: boolean;
+}
+
+export const DasboardReading: React.FC<Props> = ({
+  setIsReading,
+  isReading,
+}): JSX.Element => {
   return (
     <div className={s.wrapper}>
-      <AddReading />
+      <AddReading setIsReading={setIsReading} isReading={isReading} />
       <div>
         <h1 className={s.title}>Progress</h1>
         <p className={s.description}>

@@ -32,3 +32,39 @@ export const fetchCurrentBookThunk = createAsyncThunk<
     return thunkAPI.rejectWithValue((error as Error).message);
   }
 });
+
+export const startReadingThunk = createAsyncThunk<
+  void,
+  { page: number; id: string },
+  { rejectValue: string }
+>("start reading", async (credentials, thunkAPI) => {
+  const state = thunkAPI.getState() as RootState;
+  const token = state.auth.token;
+  if (token === null) {
+    return thunkAPI.rejectWithValue("No token.");
+  }
+  try {
+    setToken(token);
+    await instance.post("books/reading/start", credentials);
+  } catch (error) {
+    return thunkAPI.rejectWithValue((error as Error).message);
+  }
+});
+
+export const stopReadingThunk = createAsyncThunk<
+  void,
+  { page: number; id: string },
+  { rejectValue: string }
+>("stop reading", async (credentials, thunkAPI) => {
+  const state = thunkAPI.getState() as RootState;
+  const token = state.auth.token;
+  if (token === null) {
+    return thunkAPI.rejectWithValue("No token.");
+  }
+  try {
+    setToken(token);
+    await instance.post("books/reading/finish", credentials);
+  } catch (error) {
+    return thunkAPI.rejectWithValue((error as Error).message);
+  }
+});

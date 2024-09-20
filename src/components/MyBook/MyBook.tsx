@@ -7,10 +7,13 @@ import { fetchCurrentBookThunk } from "../../redux/currentBook/operations";
 import { Icon } from "../index";
 import s from "./MyBook.module.css";
 
-export const MyBook = (): JSX.Element => {
+interface myBookProps {
+  isReading: boolean;
+}
+
+export const MyBook: React.FC<myBookProps> = ({ isReading }): JSX.Element => {
   const dispatch = useDispatch<AppDispatch>();
   const book = useSelector(selectBook);
-  console.log(book);
   useEffect(() => {
     const fetchData = async (): Promise<void> => {
       try {
@@ -31,7 +34,11 @@ export const MyBook = (): JSX.Element => {
         <img src={book.imageUrl} alt="Book poster" className={s.poster} />
         <h2 className={s.title_book}>{book.title}</h2>
         <p className={s.author}>{book.author}</p>
-        <Icon id="start" size={40} />
+        {isReading ? (
+          <Icon id="stop" size={40} />
+        ) : (
+          <Icon id="start" size={40} />
+        )}
       </div>
     </div>
   );

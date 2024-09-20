@@ -1,6 +1,11 @@
-import { createSlice } from "@reduxjs/toolkit";
+import { createSlice, isAnyOf } from "@reduxjs/toolkit";
 import { RootState } from "../store";
-import { currentBook, fetchCurrentBookThunk } from "./operations";
+import {
+  currentBook,
+  fetchCurrentBookThunk,
+  startReadingThunk,
+  stopReadingThunk,
+} from "./operations";
 import { logoutThunk } from "../auth/operations";
 
 interface BookState {
@@ -31,20 +36,43 @@ const slice = createSlice({
   extraReducers: (builder) => {
     builder
       .addCase(fetchCurrentBookThunk.fulfilled, (state, { payload }) => {
-        state.isLoading = false;
         state.book = payload;
-      })
-      .addCase(fetchCurrentBookThunk.pending, (state) => {
-        state.isLoading = true;
-        state.error = null;
-      })
-      .addCase(fetchCurrentBookThunk.rejected, (state, { payload }) => {
-        state.error = payload;
-        state.isLoading = false;
       })
       .addCase(logoutThunk.fulfilled, () => {
         return initialState;
-      });
+      })
+      .addMatcher(
+        isAnyOf(
+          fetchCurrentBookThunk.fulfilled,
+          startReadingThunk.fulfilled,
+          stopReadingThunk.fulfilled
+        ),
+        (state) => {
+          state.isLoading = false;
+        }
+      )
+      .addMatcher(
+        isAnyOf(
+          fetchCurrentBookThunk.pending,
+          startReadingThunk.pending,
+          stopReadingThunk.pending
+        ),
+        (state) => {
+          state.isLoading = true;
+          state.error = null;
+        }
+      )
+      .addMatcher(
+        isAnyOf(
+          fetchCurrentBookThunk.rejected,
+          startReadingThunk.rejected,
+          stopReadingThunk.rejected
+        ),
+        (state, { payload }) => {
+          state.error = payload;
+          state.isLoading = false;
+        }
+      );
   },
 });
 
